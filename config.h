@@ -179,7 +179,8 @@ ResourcePref resources[] = {
 		{ "tabspaces",    INTEGER, &tabspaces },
 		{ "cwscale",      FLOAT,   &cwscale },
 		{ "chscale",      FLOAT,   &chscale },
-		{ "alpha",      INTEGER,   &alpha },
+		{ "alpha",        INTEGER, &alpha },
+		{ "border",       INTEGER, &borderpx },
 };
 
 /*
@@ -206,7 +207,7 @@ MouseKey mkeys[] = {
 };
 
 static char *openurlcmd[] = { "/bin/sh", "-c",
-    "grep -aEo '(http|https)://[a-zA-Z0-9./?=_-]*'  | uniq | dmenu -l 10 | xargs -r xdg-open",
+    "sed 's/.*│//g' | tr -d '\n' | grep -aEo '((http|https)://|www\\.)[a-zA-Z0-9./?=_-]*' | uniq | sed 's/^www./http:\\/\\/www\\./g' | dmenu -l 10 | xargs -r xdg-open",
     "externalpipe", NULL };
 
 static Shortcut shortcuts[] = {

@@ -257,6 +257,7 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_J,           zoom,           {.f = -1} },
 	{ TERMMOD,              XK_U,           zoom,           {.f = +2} },
 	{ TERMMOD,              XK_D,           zoom,           {.f = -2} },
+	{ TERMMOD,              XK_H,           zoomreset,      {.f =  0} },
 	// URL handling
 	// open URL with ALT+l, copy URL with ALT+y
 	// copy output of command with ALT+o

@@ -5,6 +5,8 @@ Run upstream.sh to set Luke's fork as remote
 For keeping it up to date:
 https://help.github.com/articles/syncing-a-fork/
 
+One additional change I applied was to add font-ligature support with this [patch](https://github.com/cog1to/st-ligatures/blob/master/st-ligatures-20200406-28ad288.diff)
+
 # Luke's build of st - the simple (suckless) terminal
 
 The [suckless terminal (st)](https://st.suckless.org/) with some additional features that make it literally the best terminal emulator ever:

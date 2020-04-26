@@ -351,6 +351,23 @@ utf8encodebyte(Rune u, size_t i)
 	return utfbyte[i] | (u & ~utfmask[i]);
 }
 
+char *
+utf8strchr(char *s, Rune u)
+{
+	Rune r;
+	size_t i, j, len;
+
+	len = strlen(s);
+	for (i = 0, j = 0; i < len; i += j) {
+		if (!(j = utf8decode(&s[i], &r, len - i)))
+			break;
+		if (r == u)
+			return &(s[i]);
+	}
+
+	return NULL;
+}
+
 size_t
 utf8validate(Rune *u, size_t i)
 {
@@ -2745,6 +2762,14 @@ draw(void)
 	if (term.scr == 0)
 		xdrawcursor(cx, term.c.y, term.line[term.c.y][cx],
 				term.ocx, term.ocy, term.line[term.ocy][term.ocx]);
+	/* Draw current line to format ligatures properly. */
+	xdrawline(term.line[term.c.y], 0, term.c.y, term.col);
+
+	xdrawcursor(cx, term.c.y, term.line[term.c.y][cx],
+			term.ocx, term.ocy, term.line[term.ocy][term.ocx]);
+	/* If cursor was on a transformed glyph, we need to redraw the previous line. */
+	if (term.ocy != term.c.y && (term.line[term.ocy][term.ocx].mode & ATTR_LIGA))
+		xdrawline(term.line[term.ocy], 0, term.ocy, term.col);
 	term.ocx = cx, term.ocy = term.c.y;
 	xfinishdraw();
 

@@ -271,9 +271,9 @@ static Shortcut shortcuts[] = {
 	// URL handling
 	// open URL with ALT+l, copy URL with ALT+y
 	// copy output of command with ALT+o
-	// { MODKEY,               XK_l,           externalpipe,   {.v = openurlcmd } },
-	// { MODKEY,               XK_y,           externalpipe,   {.v = copyurlcmd } },
-	// { MODKEY,               XK_o,           externalpipe,   {.v = copyoutput } },
+	{ MODKEY,               XK_l,           externalpipe,   {.v = openurlcmd } },
+	{ MODKEY,               XK_y,           externalpipe,   {.v = copyurlcmd } },
+	{ MODKEY,               XK_o,           externalpipe,   {.v = copyoutput } },
 };
 
 /*

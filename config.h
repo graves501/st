@@ -246,7 +246,8 @@ static Shortcut shortcuts[] = {
 	{ MODKEY,               XK_p,           selpaste,       {.i =  0} },
 	{ XK_ANY_MOD,		Button2,	selpaste,	{.i =  0} },
 	{ MODKEY,               XK_Num_Lock,    numlock,        {.i =  0} },
-	{ MODKEY,               XK_Control_L,   iso14755,       {.i =  0} },
+	// Codepoint shortcut that I do not need for now
+	/* { MODKEY,               XK_Control_L,   iso14755,       {.i =  0} }, */
 
 	// Scroll -- Not needed due to tmux
 	// { ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
